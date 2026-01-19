@@ -36,12 +36,13 @@ ROWS_PER_PAGE = 100
 # ==================================================
 
 today = date.today()
-kr_holidays = holidayskr.Holidays()
+
+kr_holidays = holidayskr.year_holidays(datetime.now().year)
 
 if today.weekday() >= 5 or today in kr_holidays:
     print("🚫 주말 또는 한국 공휴일 → 실행 종료")
     exit(0)
-
+    
 # ==================================================
 # 4. 최근 N일 공고 전체 조회 (페이지 순회)
 # ==================================================
